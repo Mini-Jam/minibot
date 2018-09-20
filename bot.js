@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 const moment = require('moment');
 
-var startAt = "2018-09-20"
+var startAt = "2018-09-20;00:00:00"
 
 bot.on('ready', function () {
     console.log('Connected');
@@ -25,8 +25,8 @@ bot.on("message", function (message) {
 		args = args.splice(1);
 		switch(cmd) {
 			case 'time':
-				var diff = moment(startAt).fromNow();
-				message.reply('the next **Mini Jam** starts ' + diff.asSeconds() + '.')
+				var diff = moment(startAt, 'YYYY-MM-DD;HH:mm:ss').fromNow();
+				message.reply('the next **Mini Jam** starts ' + diff + '.')
 			break;
 			case 'settime':
 				if (message.member.roles.has(role_admin.id) || message.member.roles.has(role_god.id)) {
