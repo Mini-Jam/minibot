@@ -25,7 +25,8 @@ bot.on("message", function (message) {
 		args = args.splice(1);
 		switch(cmd) {
 			case 'time':
-				var diff = moment(startAt).fromNow();
+				var exp = moment(startAt, 'YYYY-MM-DD,HH:mm')
+				var diff = moment().diff(exp, 'minutes')
 				message.reply('the next **Mini Jam** starts ' + diff + '.')
 			break;
 			case 'settime':
