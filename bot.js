@@ -25,8 +25,8 @@ bot.on("message", function (message) {
 		args = args.splice(1);
 		switch(cmd) {
 			case 'time':
-				var diff = moment(startAt).fromNow().asSeconds();
-				message.reply('the next **Mini Jam** starts ' + diff + '.')
+				var diff = moment(startAt).fromNow();
+				message.reply('the next **Mini Jam** starts ' + diff.asSeconds() + '.')
 			break;
 			case 'settime':
 				if (message.member.roles.has(role_admin.id) || message.member.roles.has(role_god.id)) {
